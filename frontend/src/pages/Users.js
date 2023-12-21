@@ -9,7 +9,7 @@ const Users = () => {
     const [userID, setUserID] = React.useState(null);
 
     const handleOpen = () => setOpen(true);
-    const handleClose = () => setOpen(false);
+    const handleClose = () => { setUserID(null); setOpen(false) };
 
     const handelEditOpen = (id) => {
         setUserID(id)
@@ -27,7 +27,7 @@ const Users = () => {
                 </Button>
             </Stack>
             <AddEditUser open={open} handleClose={handleClose} userId={userID} />
-            <UserTable handelEditOpen={handelEditOpen} open={open}/>
+            <UserTable handelEditOpen={handelEditOpen} open={open} />
         </>
     )
 }

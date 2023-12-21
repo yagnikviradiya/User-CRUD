@@ -39,7 +39,7 @@ const AddEditUser = ({ userId, open, handleClose }) => {
     };
 
     useEffect(() => {
-       const  getUser =   async() => {
+        const getUser = async () => {
             if (userId) {
 
                 try {
@@ -62,7 +62,7 @@ const AddEditUser = ({ userId, open, handleClose }) => {
                 }
 
             }
-        } 
+        }
         getUser();
     }, [userId, open])
 
@@ -135,7 +135,16 @@ const AddEditUser = ({ userId, open, handleClose }) => {
     return (
         <Modal
             open={open}
-            onClose={handleClose}
+            onClose={() => {
+                setFormData({
+                    status: true,
+                    firstName: '',
+                    lastName: '',
+                    email: '',
+                    phone: '',
+                });
+                handleClose()
+            }}
             aria-labelledby="modal-modal-title"
             aria-describedby="modal-modal-description"
         >

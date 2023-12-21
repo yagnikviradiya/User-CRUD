@@ -20,8 +20,7 @@ const UserTable = ({ handelEditOpen, open }) => {
     const getUsers = async () => {
         try {
             const res = await Api.get(ApiEndpoints.user.getUsers)
-            console.log(res.data.data.users, 'ddddd');
-            if (res.data?.data?.users?.length) {
+            if (res.data?.data?.users) {
                 setUsers(res.data.data.users)
             }
         } catch (err) {
